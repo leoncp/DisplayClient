@@ -32,12 +32,9 @@ namespace DisplayClient
 		public WindowSoftwareRegistration()
 		{
 			this.InitializeComponent();
-            //RegCode = "Unregistered";
             hardwareID = GetHardwareID(true, true,true, true, "R5LR-S4TQ");
             tbHardwareID.Text = hardwareID;
             tbInstallationCode.Focus();
-            //ABE9-6CDE-E3A2-DFB2
-			// Insert code required on object creation below this point.
 		}
 
         private  static string  GetMD5(string text)
@@ -59,13 +56,11 @@ namespace DisplayClient
 
 		private void btnRegister_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			// TODO: Add event handler implementation here.
             try
             {
                
                 string hashedHardwareID = GetMD5(hardwareID);
                 hashedHardwareID = hashedHardwareID.Substring(1, 10);
-                //MessageBox.Show(hashedHardwareID);
 
                 if (tbInstallationCode.Text == hashedHardwareID)
                 {

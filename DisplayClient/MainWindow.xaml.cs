@@ -110,7 +110,6 @@ namespace DisplayClient
             currentLoop.Id = 0; //Set for Startup so that there is no current loop firing and so that schedule fires right away
 
             si.EnableSmartInspect("DC", true);
-            
 
             CreateFolders();
             BuildTimers();
@@ -162,12 +161,13 @@ namespace DisplayClient
         {
             try
             {
-                WindowSoftwareRegistration wreg = new WindowSoftwareRegistration();
-                wreg.ShowDialog();
-                this.Close();
+                //WindowSoftwareRegistration wreg = new WindowSoftwareRegistration();
+                //wreg.ShowDialog();
+                //this.Close();
             }
             catch (Exception ex)
             {
+                si.six(ex);
             }
         }
 
@@ -1547,9 +1547,20 @@ namespace DisplayClient
             {
                 ServiceReference1.UserCollection _users = new ServiceReference1.UserCollection();
                 _users = proxy.CollectUsers();
+                Gurock.SmartInspect.SiAuto.Main.LogMessage("USERS COLLECTED");
+                try
+                {
+                    Gurock.SmartInspect.SiAuto.Main.LogMessage("USER COUNT = " + _users.Count());
+                }
+                catch (System.Exception x)
+                {
+                    si.six(x);
+                }
+                
                 if (_users.Count <= 0 && FTPONLY == false)
                 {
                     allok = false;
+                    Gurock.SmartInspect.SiAuto.Main.LogMessage("FALSE");
                 }
             }
             catch (Exception ex)
