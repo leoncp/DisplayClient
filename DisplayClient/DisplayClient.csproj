@@ -99,11 +99,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="..\..\..\Shared\SmartInspect.cs">
-      <Link>SmartInspect.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SelfHost\Delta.cs">
+    <Compile Include="..\..\iTactixCore\SelfHost\Delta.cs">
       <Link>Delta.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shared\SmartInspect.cs">
+      <Link>SmartInspect.cs</Link>
     </Compile>
     <Compile Include="ActiveTarget.cs" />
     <Compile Include="Asset.cs" />
